@@ -6,7 +6,7 @@ echo"<br>";
 
 // genera informe
 
-$bus=10184146;
+$bus=10184144 ;
 $ayer=date("Y-m-d", strtotime("yesterday"));
 $hash=$cap;
 $title=urlencode('Informe de violación de velocidad');
@@ -15,7 +15,7 @@ $trackers=urlencode("[$bus]");
 $from=urlencode("$ayer 00:00:00");
 $to=urlencode("$ayer 23:59:59");
 $time_filter=urlencode('{"from":"00:00","to":"23:59","weekdays":[1,2,3,4,5,6,7]}');
-$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":1,"max_speed":50,"group_by_driver":false,"filter":true}');
+$plugin=urlencode('{"hide_empty_tabs":true,"plugin_id":27,"show_seconds":false,"min_duration_minutes":0,"max_speed":50,"group_by_driver":false,"filter":true}');
 
 $cadena='hash='.$cap.'&title='.$title.'&trackers='.$trackers.'&from='.$from.'&to='.$to.'&time_filter='.$time_filter.'&plugin='.$plugin;
 

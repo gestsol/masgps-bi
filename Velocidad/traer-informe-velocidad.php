@@ -8,7 +8,7 @@ $json=json_decode($informe);
 
 $id_informe=$json->id;
 
-
+sleep(4);
 
 $curl = curl_init();
 
@@ -37,7 +37,39 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+$json =json_decode($response);
+
+//echo $response;
+//$.report.sheets[0].sections[1].header titulo
+//$.report.sheets[0].sections[1].data[0].rows[0] filas
+//$.report.sheets[0].sections[1].data[0].rows[0].duration.v
+//$.report.sheets[0].sections[1].data[0].rows[0].start_time.v
+//$.report.sheets[0].sections[1].data[0].rows[0].max_speed.v
+//$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.v  (direccion)
+//$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lat
+//$.report.sheets[0].sections[1].data[0].rows[0].max_speed_address.location.lng
+
+ echo $json->report->sheets[0]->sections[1]->header ;
+ echo "<br>";
+
+ $rows=$json->report->sheets[0]->sections[1]->data[0]->rows ;
+
+ foreach ($rows as $element){
+
+ echo $vel_max=$element->max_speed->v .' / ' ;
+ echo $duracion=$element->duration->v .' / ' ;
+ echo $hora=$element->start_time->v .' / ' ;
+ echo $direcc=$element->max_speed_address->v.' / ' ;
+ echo $lat=$element->max_speed_address->location->lat.' / ' ;
+ echo $long=$element->max_speed_address->location->lng.' / ' ;
+
+ echo "<br>";
+
+ }
+
+
+
 
 
 
