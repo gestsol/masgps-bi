@@ -4,9 +4,11 @@ include "../login/login.php";
 echo"<br>";
 
 
+
+
 // genera informe
 
-$bus=10184144 ;
+$bus=10184138 ;
 $ayer=date("Y-m-d", strtotime("yesterday"));
 $hash=$cap;
 $title=urlencode('Informe de violación de velocidad');
@@ -53,5 +55,7 @@ curl_setopt_array($curl, array(
 $informe = curl_exec($curl);
 
 curl_close($curl);
+sleep (2);
 echo $informe;
+echo "<br>";
 ?>

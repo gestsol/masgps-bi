@@ -1,6 +1,6 @@
 <?php
 
-include "./login/login.php" ;
+include "../login/login.php" ;
 
  $cap;
 
@@ -53,8 +53,8 @@ $i++ ;
 
 }
 
-print_r($id_trackers);
-echo "<br>";
-print_r($patentes);
+// print_r($id_trackers);
+// echo "<br>";
+// print_r($patentes);
 
 ?>
